@@ -36,11 +36,11 @@ def make_pipeline_map(state):
         input=output_from('original_fastqs'),
         # Match the R1 (read 1) FASTQ file and grab the path and sample name.
         # This will be the first input to the stage.
-        filter=formatter('.+/(?P<sample>[a-zA-Z0-9_-]+)_R1_(?P<lib>[a-zA-Z0-9-:]+).fastq.gz'),
+        filter=formatter('fastqs/(?P<sample>[a-zA-Z0-9_-]+)_R1_(?P<lib>[a-zA-Z0-9-:]+).fastq.gz'),
         # Add one more inputs to the stage:
         #    1. The corresponding R2 FASTQ file
         add_inputs=add_inputs(
-            '{path[0]}/{sample[0]}_R2_{lib[0]}.fastq.gz'),
+            '{fastqs/{sample[0]}_R2_{lib[0]}.fastq.gz'),
         # Add an "extra" argument to the state (beyond the inputs and outputs)
         # which is the sample name. This is needed within the stage for finding out
         # sample specific configuration options
