@@ -40,7 +40,7 @@ def make_pipeline_map(state):
         # Add one more inputs to the stage:
         #    1. The corresponding R2 FASTQ file
         add_inputs=add_inputs(
-            '{fastqs/{sample[0]}_R2_{lib[0]}.fastq.gz'),
+            'fastqs/{sample[0]}_R2_{lib[0]}.fastq.gz'),
         # Add an "extra" argument to the state (beyond the inputs and outputs)
         # which is the sample name. This is needed within the stage for finding out
         # sample specific configuration options
